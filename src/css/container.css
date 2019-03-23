@@ -1,0 +1,23 @@
+.largeContainer {
+    width: 80%;
+    margin: auto;
+    margin-top: 2%;
+    padding: 2%;
+    text-align: center;
+    position: relative;
+    border: solid 1px #a0a0a0;
+    border-radius: 3px;
+    background-color: #f5f5f5;
+}
+
+.mediumContainer {
+    width: 40%;
+    margin: auto;
+    margin-top: 1%;
+    padding: 1%;
+    text-align: center;
+    position: relative;
+    border: solid 1px #a0a0a0;
+    border-radius: 3px;
+    background-color: #f5f5f5;
+}

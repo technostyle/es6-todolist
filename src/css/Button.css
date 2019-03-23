@@ -1,0 +1,12 @@
+.button {
+  margin: 5px;
+  height: 25px;
+  background-color: steelblue;
+  color: white;
+  border: solid 1px pink;
+  border-radius: 5px;
+}
+
+.button:active {
+  background-color: skyblue;
+}

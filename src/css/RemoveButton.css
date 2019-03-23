@@ -1,0 +1,11 @@
+.removeButton {
+    /* background-color: tomato; */
+    color: tomato;
+    background: none;
+    border: none;
+    cursor: pointer;
+    /* border-radius: 3px; */
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}

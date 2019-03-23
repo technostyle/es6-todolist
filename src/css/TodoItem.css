@@ -1,0 +1,9 @@
+.todoItem {
+    width: 80%;
+    text-align: center;
+    margin: auto;
+    margin-top: 1%;
+    border: 1px solid gray;
+    position: relative;
+    padding: 0.5%;
+}
