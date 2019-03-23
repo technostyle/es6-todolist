@@ -11,9 +11,8 @@ class TodoList extends DomElement {
     }
 
     addTodo(todo) {
-        const todoItem = new TodoItem();
-        todoItem.addToDom(this.domElem);
-        todoItem.addInnerHtml(todo.name);
+        const todoItem = new TodoItem(todo);
+        todoItem.addToDom(this);
         todoItem.render();
     }
 

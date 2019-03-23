@@ -1,9 +1,11 @@
-import style from "./Description.css";
+import { description } from "../../css/Description.css";
+import DomElement from "../dom/DomElement";
 
-export class Description {
+export class Description extends DomElement {
     constructor() {
-        this.domElem = document.createElement("div");
-        this.domElem.classList.add(style["description"]);
+        super({
+            elemType: "div",
+            styleClass: description
+        });
     }
-
 }

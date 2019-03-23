@@ -1,4 +1,9 @@
-export default INPUT_DATA = [
+const STATUSES = {
+    TODO: "todo",
+    DONE: "done"
+};
+
+const INPUT_DATA = [
     {
         title: "wake up",
         description: "start a day",
@@ -33,3 +38,5 @@ export default INPUT_DATA = [
         status: STATUSES.TODO
     }
 ];
+
+export default INPUT_DATA;

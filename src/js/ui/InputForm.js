@@ -24,18 +24,19 @@ class InputForm extends DomElement{
 	}
 
 	inputHandler(event) {
-		if (event.keyCode != 13) {
-			this.setValue(event.target.value);
+		
+		if (
+			event.keyCode != 13 || 
+			!event.target.value.trim()
+		) {
 			return;
 		}
 
 		if (this.outerController) {
-			// this.outerController(this, this.getValue());
-			this.outerController(this.getValue());
+			this.outerController(event.target.value);
 		}
 
-		// console.log(this.getValue())
-		this.setValue("");
+		event.target.value = "";
 	}
 
 	setOuterController(fn) {

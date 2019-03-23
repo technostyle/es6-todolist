@@ -1,14 +1,10 @@
 import { EVENT_TYPES } from "./Events";
+// import { INPUT_DATA } from "./InputData"
+import INPUT_DATA from "./InputData"
 
-const STATE = {};
 const EVENT_QUEUE = [];
 EVENT_QUEUE.push = Array.prototype.unshift;
 // EVENT_QUEUE.pop = Array.prototype.pop;
-
-const STATUSES = {
-    TODO: "todo",
-    DONE: "done"
-};
 
 const COUNTER = (function(){
     let value = 0;
@@ -18,10 +14,12 @@ const COUNTER = (function(){
     };
 })();
 
-function createTodo(todoName) {
+function createTodo({ title, description, status }) {
     return {
         id: COUNTER.uniqeId(),
-        name: todoName,
+        title: title,
+        description: description,
+        status: status,
         date: Date.now()
     }
 }
@@ -33,7 +31,7 @@ function onTodoNameInputSubmit(todoName) {
         payload: todoName
     });
 
-    console.log(EVENT_QUEUE);
+    console.warn(EVENT_TYPES.INPUT_SUBMIT);
     dispatchEvent();
 }
 
@@ -44,7 +42,10 @@ function onTodoRemoveButtonClick(button) {
         payload: button
     });
 
-    console.log(EVENT_QUEUE);
+    // console.warn(EVENT_TYPES.REMOVE_PARENT);
+    console.profile(EVENT_TYPES.REMOVE_PARENT);
+    // console.timeStamp(EVENT_TYPES.REMOVE_PARENT);
+    // console.trace(EVENT_TYPES.REMOVE_PARENT);
     dispatchEvent();
 }
 
@@ -53,19 +54,29 @@ export const EVENT_HANDLER = {
     REMOVE_PARENT: onTodoRemoveButtonClick
 }
 
-let TODO_LIST;
+let TODO_LIST_COMPONENT;
+let TODO_LIST_DATA;
 // TodoList Class instance
 export function initController(todoList) {
-    TODO_LIST = todoList;
+    TODO_LIST_COMPONENT = todoList;
+    // TODO_LIST_DATA = INPUT_DATA;
+    INPUT_DATA.forEach(todoItem => 
+        TODO_LIST_COMPONENT.addTodo(
+            createTodo(todoItem)
+        )
+    );
 }
+
 
 function dispatchEvent() {
     const event = EVENT_QUEUE.pop();
 
     switch(event.type) {
         case EVENT_TYPES.INPUT_SUBMIT:
-            TODO_LIST.addTodo(
-                createTodo(event.payload)
+            TODO_LIST_COMPONENT.addTodo(
+                createTodo({
+                    title: event.payload
+                })
             );
             break;
         
@@ -73,7 +84,7 @@ function dispatchEvent() {
             const domElem = event.payload;
             const parent = domElem.parent;
             domElem.destroy(); 
-            // parent.destroy();
+            parent.destroy();
             break;        
     }
 }

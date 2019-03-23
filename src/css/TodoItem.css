@@ -4,6 +4,7 @@
     margin: auto;
     margin-top: 1%;
     border: 1px solid gray;
+    border-radius: 2px;
     position: relative;
     padding: 0.5%;
 }
