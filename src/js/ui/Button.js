@@ -5,12 +5,15 @@ class Button extends DomElement{
 		super({
 			elemType: "button",
 		});
+	}
 
+	setOuterController(controller) {
 		this.addHandler({
 			eventType: "click",
-			handler: () => console.log(this)
+			handler: () => controller(this)
 		});
 	}
+
 }
 
 export default Button;

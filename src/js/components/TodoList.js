@@ -10,13 +10,14 @@ class TodoList extends DomElement {
         });
     }
 
+    addTodo(todo) {
+        const todoItem = new TodoItem();
+        todoItem.addToDom(this.domElem);
+        todoItem.addInnerHtml(todo.name);
+        todoItem.render();
+    }
+
     render() {
-        for (let i = 0; i < 5; i++) {
-            const todoItem = new TodoItem();
-            todoItem.addToDom(this.domElem);
-            todoItem.addInnerHtml(`item ${i + 10} added`);
-            todoItem.render();
-        }
     }
 }
 

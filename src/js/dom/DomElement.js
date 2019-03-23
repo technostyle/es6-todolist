@@ -17,6 +17,8 @@ export default class DomElement {
 	}
 
 	addToDom(parent){
+		// const parentElem = parent.domElem;
+		// parentElem.appendChild(this.domElem);
 		parent.appendChild(this.domElem);
 		this.parent = parent;
 	}

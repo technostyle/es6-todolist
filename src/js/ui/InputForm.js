@@ -30,10 +30,11 @@ class InputForm extends DomElement{
 		}
 
 		if (this.outerController) {
-			this.outerController(this, this.getValue());
+			// this.outerController(this, this.getValue());
+			this.outerController(this.getValue());
 		}
 
-		console.log(this.getValue())
+		// console.log(this.getValue())
 		this.setValue("");
 	}
 

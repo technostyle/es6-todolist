@@ -3,6 +3,8 @@ import TodoList from "../components/TodoList"
 import { mediumContainer } from "../../css/container.css"
 import Header from "../ui/Header";
 import InputForm from "../ui/InputForm"
+import { EVENT_HANDLER, init } from "../controllers/Controller";
+import { initController } from "../controllers/Controller"
 
 export default class App extends DomElement {
     constructor() {
@@ -18,10 +20,15 @@ export default class App extends DomElement {
         header.addToDom(this.domElem);
 
         const input = new InputForm();
+        input.setOuterController(
+            EVENT_HANDLER.INPUT_SUBMIT
+        );
         input.addToDom(this.domElem);
 
         const todoList = new TodoList();
         todoList.addToDom(this.domElem);
         todoList.render();
+
+        initController(todoList);
     }
 }
