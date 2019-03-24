@@ -78,7 +78,6 @@ class TodoItem extends DomElement {
             this.descriptionComponent.addInnerHtml(description || "");
             return;
         }
-
         const descr = new Description();
         descr.addInnerHtml(description || "");
         descr.addToDom(this);

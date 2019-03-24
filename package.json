@@ -1,12 +1,12 @@
 {
-  "name": "unitary-matrix-properties",
+  "name": "basic-todolist",
   "version": "1.0.0",
   "main": "index.js",
   "author": "Perloff Danila",
   "license": "MIT",
   "scripts": {
-    "build": "webpack --mode production -w",
-    "dev": "webpack --mode development"
+    "build": "webpack --mode production",
+    "dev": "webpack --mode development -w"
   },
   "dependencies": {
     "css-loader": "^2.1.1",
