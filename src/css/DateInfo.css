@@ -1,0 +1,9 @@
+.dateInfoOnTop {
+    position: absolute;
+    top: 0px;
+    left: 20%;
+    right: 20%;
+    margin-top: 1%;
+    border: solid 1px gray;
+    border-radius: 3px;
+}

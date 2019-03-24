@@ -20,7 +20,7 @@ function createTodo({ title, description, status }) {
         title: title,
         description: description,
         status: status,
-        date: Date.now()
+        date: Date.now().to
     }
 }
 

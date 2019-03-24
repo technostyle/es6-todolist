@@ -1,5 +1,6 @@
 import DomElement from '../dom/DomElement';
 import Button from '../ui/Button'
+import InputForm from '../ui/InputForm'
 import LittleHeader from '../ui/LittleHeader'
 import { 
     completeButton, 
@@ -10,6 +11,7 @@ import { visible, invisible } from '../../css/Invisible.css';
 import HANDLERS from '../controllers/EventHandlers';
 import { Description } from '../ui/Description';
 import STATUCES from '../share/Statuces.js'
+import DateInfo from '../ui/DateInfo';
 
 class TodoItem extends DomElement {
     constructor(props) {
@@ -21,7 +23,9 @@ class TodoItem extends DomElement {
         this.props = props;
         this.addRemoveButton = this.addRemoveButton.bind(this);
         this.addCompleteButton = this.addCompleteButton.bind(this);
+        this.addDescriptionInput = this.addDescriptionInput.bind(this);
         this.addTitle = this.addTitle.bind(this);
+        this.addDate = this.addDate.bind(this);
         this.addDescription = this.addDescription.bind(this);
         this.setTodoStatus = this.setTodoStatus.bind(this);
         this.toggleTodoStatus = this.toggleTodoStatus.bind(this);
@@ -51,6 +55,26 @@ class TodoItem extends DomElement {
         rmBtn.addToDom(this);
     }
 
+    addDate(date) {
+        const dateInfo = new DateInfo();
+        dateInfo.setDate(date);
+        dateInfo.addToDom(this);
+        console.log("date: ", date);
+        console.log(
+            // new Date(date),
+            // new Date(date).toLocaleDateString()
+            new Date(date).toLocaleTimeString()
+        );
+    }
+
+    addDescriptionInput() {
+        const input = new InputForm();
+        input.setOuterController(
+            HANDLERS.TODO_DESCR_SUBMIT
+        );
+        input.addToDom(this);
+    }
+
     addTitle(title) {
         const header = new LittleHeader();
         header.addInnerHtml(title);
@@ -61,9 +85,16 @@ class TodoItem extends DomElement {
         if (!description) {
             return;
         }
+
+        if (this.descriptionComponent) {
+            this.descriptionComponent.addInnerHtml(description);
+            return;
+        }
+
         const descr = new Description();
         descr.addInnerHtml(description);
         descr.addToDom(this);
+        this.descriptionComponent = descr;
     }
 
 
@@ -113,7 +144,9 @@ class TodoItem extends DomElement {
             date, 
             visibility 
         } = this.props;
+
         this.addTitle(title);
+        this.addDate(date);
         this.addDescription(description);
         this.setTodoStatus(status);
         this.renderTodoStatus();
@@ -122,6 +155,7 @@ class TodoItem extends DomElement {
 
         this.addCompleteButton();
         this.addRemoveButton();
+        this.addDescriptionInput();
     }
 }
 

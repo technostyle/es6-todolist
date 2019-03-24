@@ -18,8 +18,10 @@
   border: solid 1px green;
   border-radius: 3px;
   position: absolute;
-  margin-left: 3px;
-  margin-top: 3px;
+  /* margin-left: 3px;
+  margin-top: 3px; */
+  margin-left: 1%;
+  margin-top: 1%;
   top: 0px;
   left: 0px;
 }
@@ -31,8 +33,10 @@
   border: solid 1px tomato;
   border-radius: 3px;
   position: absolute;
-  margin-right: 3px;
-  margin-top: 3px;
+  /* margin-right: 3px;
+  margin-top: 3px; */
+  margin-right: 1%;
+  margin-top: 1%;
   top: 0px;
   right: 0px;
 }

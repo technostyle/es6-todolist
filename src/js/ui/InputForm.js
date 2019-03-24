@@ -33,7 +33,7 @@ class InputForm extends DomElement{
 		}
 
 		if (this.outerController) {
-			this.outerController(event.target.value);
+			this.outerController(event.target.value, this);
 		}
 
 		event.target.value = "";

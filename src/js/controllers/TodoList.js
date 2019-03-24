@@ -1,5 +1,4 @@
 import INPUT_DATA from "./InputData"
-import FILTERS from "../share/Filters";
 
 const COUNTER = (function(){
     let value = 0;
@@ -52,4 +51,9 @@ export function removeTodo(button) {
 export function setFilter(filter) {
     TODO_LIST_VIEW.setFilter(filter);
     TODO_LIST_VIEW.handleFilter();
+}
+
+export function setDescription(description, inputForm) {
+    const todo = inputForm.parent;
+    todo.addDescription(description);
 }
