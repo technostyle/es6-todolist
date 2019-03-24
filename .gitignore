@@ -1,5 +1,5 @@
 # external libs
-node_modules
+node_modules/
 
 # bundled code
-dist
+dist/
