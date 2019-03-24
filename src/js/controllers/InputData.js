@@ -9,7 +9,7 @@ const INPUT_DATA = [
     }, 
     {
         title: "Plan ui logic",
-        description: "Develop dom elements inheritance.",
+        description: "Develop dom elements inheritance with es6.",
         status: STATUSES.TODO,
         date: 1553447766274
     },
