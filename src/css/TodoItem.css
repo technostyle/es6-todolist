@@ -8,3 +8,11 @@
     position: relative;
     padding: 0.5%;
 }
+
+.done {
+    text-decoration: line-through;
+    color: gray;
+}
+
+.todo {
+}

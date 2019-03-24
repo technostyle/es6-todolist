@@ -1,7 +1,4 @@
-const STATUSES = {
-    TODO: "todo",
-    DONE: "done"
-};
+import STATUSES from "../share/Statuces"
 
 const INPUT_DATA = [
     {

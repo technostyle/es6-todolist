@@ -3,8 +3,9 @@ import TodoList from "../components/TodoList"
 import { mediumContainer } from "../../css/container.css"
 import Header from "../ui/Header";
 import InputForm from "../ui/InputForm"
-import { EVENT_HANDLER } from "../controllers/Controller";
-import { initController } from "../controllers/Controller"
+import HANDLERS from "../controllers/EventHandlers";
+import { init } from "../controllers/TodoList"
+import FilterPanel from "../components/Filter"
 
 export default class App extends DomElement {
     constructor() {
@@ -12,6 +13,7 @@ export default class App extends DomElement {
             elemType: "div",
             styleClass: mediumContainer
         });
+        this.addToDom = this.addToDom.bind(this);
     }
 
     addToDom(root) {
@@ -27,14 +29,18 @@ export default class App extends DomElement {
 
         const input = new InputForm();
         input.setOuterController(
-            EVENT_HANDLER.INPUT_SUBMIT
+            HANDLERS.INPUT_SUBMIT
         );
         input.addToDom(this);
+        input.domElem.focus();
+
+        const panel = new FilterPanel();
+        panel.addToDom(this);
+        panel.render();
 
         const todoList = new TodoList();
         todoList.addToDom(this);
         todoList.render();
-
-        initController(todoList);
+        init(todoList);
     }
 }
