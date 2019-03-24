@@ -2,10 +2,7 @@ import DomElement from '../dom/DomElement';
 import Button from '../ui/Button'
 import InputForm from '../ui/InputForm'
 import LittleHeader from '../ui/LittleHeader'
-import { 
-    completeButton, 
-    removeButton 
-} from '../../css/Button.css'
+import { completeButton, removeButton } from '../../css/Button.css'
 import { todoItem, done, todo } from '../../css/TodoItem.css';
 import { visible, invisible } from '../../css/Invisible.css';
 import HANDLERS from '../controllers/EventHandlers';
@@ -59,12 +56,6 @@ class TodoItem extends DomElement {
         const dateInfo = new DateInfo();
         dateInfo.setDate(date);
         dateInfo.addToDom(this);
-        console.log("date: ", date);
-        console.log(
-            // new Date(date),
-            // new Date(date).toLocaleDateString()
-            new Date(date).toLocaleTimeString()
-        );
     }
 
     addDescriptionInput() {
@@ -82,17 +73,14 @@ class TodoItem extends DomElement {
     }
 
     addDescription(description) {
-        if (!description) {
-            return;
-        }
 
         if (this.descriptionComponent) {
-            this.descriptionComponent.addInnerHtml(description);
+            this.descriptionComponent.addInnerHtml(description || "");
             return;
         }
 
         const descr = new Description();
-        descr.addInnerHtml(description);
+        descr.addInnerHtml(description || "");
         descr.addToDom(this);
         this.descriptionComponent = descr;
     }
@@ -141,8 +129,7 @@ class TodoItem extends DomElement {
             title, 
             description, 
             status, 
-            date, 
-            visibility 
+            date
         } = this.props;
 
         this.addTitle(title);
@@ -150,7 +137,7 @@ class TodoItem extends DomElement {
         this.addDescription(description);
         this.setTodoStatus(status);
         this.renderTodoStatus();
-        this.setVisibility(visibility || true);
+        this.setVisibility(true);
         this.renderVisibility();
 
         this.addCompleteButton();

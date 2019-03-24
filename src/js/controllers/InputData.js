@@ -2,34 +2,28 @@ import STATUSES from "../share/Statuces"
 
 const INPUT_DATA = [
     {
-        title: "wake up",
-        description: "start a day",
+        title: "Create dev env",
+        description: "Install webpack, add css-loader, init git repo.",
         status: STATUSES.TODO,
-        date: 1553446455284
+        date: 1553446555284
     }, 
     {
-        title: "have a breakfast",
-        description: "continue a day",
+        title: "Plan ui logic",
+        description: "Develop dom elements inheritance.",
         status: STATUSES.TODO,
-        date: 1553446456274
+        date: 1553447766274
     },
     {
-        title: "make some job",
-        description: "to live on",
+        title: "Create dom skeleton",
+        description: "To see what to work on. Add also some styles.",
         status: STATUSES.TODO,
-        date: 1553446456734
+        date: 1553448476754
     },
     {
-        title: "have a meal",
-        description: "to keep on",
+        title: "Collect all events in one place",
+        description: "To handle them easier.",
         status: STATUSES.TODO,
-        date: 1553446456754
-    },
-    {
-        title: "finish the job",
-        description: "to get paid",
-        status: STATUSES.TODO,
-        date: 155344645676
+        date: 1553449486734
     }
 ];
 

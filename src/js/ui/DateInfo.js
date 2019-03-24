@@ -9,22 +9,7 @@ class DateInfo extends DomElement {
         });
     }
 
-    setDate(miliseconds) {
-        // this.addInnerHtml("date");
-
-        // const date = miliseconds.toLocaleDateString('ru-Ru', {  
-        //     day : 'numeric',
-        //     month : 'short',
-        //     year : 'numeric'
-        // })
-        
-        // this.addInnerHtml(date);
-        // const date = new Date().toLocaleDateString('en-GB', {  
-        //     day : 'numeric',
-        //     month : 'short',
-        //     year : 'numeric'
-        // })
-
+    setDate(miliseconds) {        
         const date = new Date(miliseconds).toLocaleString(undefined, {
             day: 'numeric',
             month: 'numeric',
@@ -34,7 +19,6 @@ class DateInfo extends DomElement {
         });
 
         this.addInnerHtml(date);
-
     }
 }
 
