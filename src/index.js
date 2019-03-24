@@ -1,5 +1,6 @@
 import App from "./js/containers/App";
 
 const app = new App();
-app.addToDom(document.body);
+const root = document.getElementById("app");
+app.addToDom(root);
 app.render();

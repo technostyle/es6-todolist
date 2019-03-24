@@ -1,4 +1,5 @@
 import INPUT_DATA from "./InputData"
+import STATUSES from "../share/Statuces"
 
 const COUNTER = (function(){
     let value = 0;
@@ -13,7 +14,7 @@ function createTodo(title) {
         id: COUNTER.uniqeId(),
         title: title,
         description: "",
-        status: 'todo',
+        status: STATUSES.TODO,
         date: Date.now()
     }
 }
