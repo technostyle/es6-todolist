@@ -131,8 +131,8 @@ class TodoItem extends DomElement {
             date
         } = this.props;
 
-        this.addTitle(title);
         this.addDate(date);
+        this.addTitle(title);
         this.addDescription(description);
         this.setTodoStatus(status);
         this.renderTodoStatus();
