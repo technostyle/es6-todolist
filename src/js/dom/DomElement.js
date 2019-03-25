@@ -9,18 +9,15 @@ export default class DomElement {
 	}
 
 	destroy(){
-		// const parent = this.parent || this.domElem.parentElement;
 		if (this.eventType && this.handler) {
 			this.domElem.removeEventListener(this.eventType, this.handler);
 		}
-		// parent.removeChild(this.domElem);
 		this.parent.domElem.removeChild(this.domElem);
 	}
 
 	addToDom(parent){
 		const parentElem = parent.domElem;
 		parentElem.appendChild(this.domElem);
-		// parent.appendChild(this.domElem);
 		this.parent = parent;
 	}
 
